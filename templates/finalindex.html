@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실시간 대기질 정보</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+    </style>
+</head>
+<body>
+    <h2>강수확률 정보</h2>
+    <table>
+        <tr>
+            <th>날짜시간</th>
+            <th>온도 (°C)</th>
+            <th>최고온도 (°C)</th>
+            <th>최저온도 (°C)</th>
+            <th>습도 (%)</th>
+            <th>강수량 (mm)</th>
+            <th>강수확률 (%)</th>
+            <th>미세먼지 [PM10]</th>
+            <th>초미세먼지 [PM25]</th>
+        </tr>
+        <tr>
+            <td>{{ weather.time }}</td>
+            <td>{{ weather.temp }}</td>
+            <td>{{ weather.maxtemp }}</td>
+            <td>{{ weather.mintemp }}</td>
+            <td>{{ weather.humidity }}</td>
+            <td>{{ weather.rain }}</td>
+            <td>{{ weather.rainchance }}</td>
+            <td>{{ weather.pm10Value }}</td>
+            <td>{{ weather.pm25Value }}</td>
+        </tr>
+    </table>
+</body>
+</html>
