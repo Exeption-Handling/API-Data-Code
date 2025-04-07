@@ -1,7 +1,7 @@
 from multiprocessing import Process, Manager
 import threading
 import time
-import data, data4, data5
+import data, data2, data4, data5
 from flask import Flask, render_template
 from datetime import datetime
 
@@ -50,7 +50,7 @@ def background_updater():
             print("데이터 갱신 완료:", merged)
         except Exception as e:
             print("데이터 갱신 실패:", e)
-        time.sleep(60)  # 300초 = 5분마다 갱신
+        time.sleep(1800)  # 300초 = 5분마다 갱신
 
 @app.route("/")
 def home():
