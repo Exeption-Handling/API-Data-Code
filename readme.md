@@ -32,11 +32,9 @@
 - html(jinja2, flask)
 
 ## 주요 파일
-- `sensor_reader.py`: 센서 초기화 및 데이터 수집
-- `data_sender.py`: HTTP 요청을 통해 서버에 데이터 전송
-- `config.json`: 설정 파일
+- `datan.py`: API 기상 데이터 수집
+- `finaldata.py`: multiprocessing을 이용해 datan.py에서 수집한 데이터를 mysql에 저장, html로 간이 구현 
+- `templates`: finaldata.py 실행을 위한 html 템플릿
 
 ## 실행 방법
-```bash
-pip install -r requirements.txt
-python main.py
+- 통째로 다운받아서 finaldata.py 실행
