@@ -15,7 +15,7 @@ def create_connection():
     conn = pymysql.connect(
         host="localhost",
         user="1324554",
-        password="1111",
+        password="xxxxx",
         db="weather_db",
         charset="utf8mb4",
         cursorclass=pymysql.cursors.DictCursor
