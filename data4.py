@@ -2,7 +2,7 @@
 import requests  # requests 모듈 임포트
 
 # URL과 저장 경로 변수를 지정합니다.
-url = f'https://apihub.kma.go.kr/api/typ01/url/kma_sfcdd.php?&stn=131&disp=0&help=1&authKey=lCL7eoqyTzGi-3qKst8xEQ'
+url = f'https://apihub.kma.go.kr/api/typ01/url/kma_sfcdd.php?&stn=131&disp=0&help=1&authKey=xxxxxxxxxxxxxxxxxxxx'
 save_path = './OpenSourceBasicProj_Ass/teamproj/output_file4.txt'
 
 try:
