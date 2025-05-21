@@ -2,7 +2,7 @@
 import requests  # requests 모듈 임포트
 
 # URL과 저장 경로 변수를 지정합니다.
-url = f'https://apihub.kma.go.kr/api/typ01/url/kma_sfctm2.php?&stn=131&help=1&authKey=xxxxxxxxxxxxxxxx'
+url = f'https://apihub.kma.go.kr/api/typ01/url/kma_sfctm2.php?&stn=131&help=1&authKey=lCL7eoqyTzGi-3qKst8xEQ'
 save_path = './OpenSourceBasicProj_Ass/teamproj/output_file.txt'
 
 try:
@@ -21,9 +21,11 @@ def finalarr(shared_list):
     try:
         data = extract_lines_in_range(save_path, 55)
 
-        finalData = {'temp' : data[64:68], 'humidity' : data[76:80], 'rain' : data[89:93]}
+        finalData = {'temp' : data[64:68].strip(), 'humidity' : data[76:80].strip(), 'rain' : data[89:93].strip(), 'cloud' : data[166:168].strip(), 'wind' : data[30:34].strip()}
         if float(finalData['rain']) <= 0:
             finalData['rain'] = '0.0'
+        if float(finalData['wind']) <= 0:
+            finalData['wind'] = '0.0'
         
         shared_list.append(finalData)
     
