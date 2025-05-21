@@ -24,6 +24,9 @@
             <th>강수확률 (%)</th>
             <th>미세먼지 [PM10]</th>
             <th>초미세먼지 [PM25]</th>
+            <th>운량 [%]</th>
+            <th>바람 [m/s]</th>
+            <th>아이콘</th>
         </tr>
         <tr>
             <td>{{ weather.time }}</td>
@@ -35,7 +38,65 @@
             <td>{{ weather.rainchance }}</td>
             <td>{{ weather.pm10Value }}</td>
             <td>{{ weather.pm25Value }}</td>
+            <td>{{ weather.cloud }}</td>
+            <td>{{ weather.wind }}</td>
+            <td>{% if weather.icon == 0 %}
+                    <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/sunny.png">
+                {% elif weather.icon == 1 %}
+                    <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/storming.png">
+                {% elif weather.icon == 2 %}
+                    <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/lightning.png">
+                {% elif weather.icon == 3 %}
+                    <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/snowy.png">
+                {% elif weather.icon == 4 %}
+                    <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/rainy.png">
+                {% elif weather.icon == 5 %}
+                    <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/dark_cloudy.png">
+                {% elif weather.icon == 6 %}
+                    <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/cloudy.png">
+                {% elif weather.icon == 7 %}
+                    <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/windy.png">
+                {% endif %}
+            </td>
         </tr>
+    </table>
+    <h2>weather_table_f의 가장 최근 데이터 (created_at 기준)</h2>
+    <table>
+        <tr>
+            <th>카테고리</th>
+            <th>측정값</th>
+            <th>측정 시간</th>
+            <th>저장 시각</th>
+        </tr>
+        {% for row in weather_f_list %}
+        <tr>
+            <td>{{ row.category }}</td>
+            <td>{% if row.category == 'icon' %}
+                    {% if row.value == 0.0 %}
+                        <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/sunny.png">
+                    {% elif row.value == 1.0 %}
+                        <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/storming.png">
+                    {% elif row.value == 2.0 %}
+                        <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/lightning.png">
+                    {% elif row.value == 3.0 %}
+                        <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/snowy.png">
+                    {% elif row.value == 4.0 %}
+                        <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/rainy.png">
+                    {% elif row.value == 5.0 %}
+                        <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/dark_cloudy.png">
+                    {% elif row.value == 6.0 %}
+                        <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/cloudy.png">
+                    {% elif row.value == 7.0 %}
+                        <img src = "./OpenSourceBasicProj_Ass/teamproj/templates/window_weather/windy.png">
+                    {% endif %}
+                {% else %}
+                    {{ row.value }}
+                {% endif %}
+            </td>
+            <td>{{ row.time }}</td>
+            <td>{{ row.created_at }}</td>
+        </tr>
+        {% endfor %}
     </table>
 </body>
 </html>
