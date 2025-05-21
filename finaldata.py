@@ -72,12 +72,13 @@ def load_data():
             s = 5
         elif int(merged_data['cloud']) >= 5:
             s = 6
-        elif int(merged_data['wind']) > 8:
+        elif float(merged_data['wind']) > 8.0:
             s = 7
         else:
             s = 0
         merged_data['icon'] = s
 
+        organized_data['icon'] = []
         for i in range(81):
             if i < 6:
                 if int(organized_data['raintype'][i][1]) > 0 and int(organized_data['lightning'][i][1]) > 0:
@@ -109,8 +110,8 @@ def load_data():
                     t = 7
                 else:
                     t = 0
-                organized_data['icon'] = [organized_data['temp'][i][0], t]
-
+                organized_data['icon'].append([organized_data['temp'][i][0], t])
+            #print(organized_data['icon'])
         return merged_data, organized_data
     
 # 🔹 일반 함수: 백그라운드에서 사용
@@ -135,9 +136,9 @@ def save_to_db(data, data2):
             ))
         
         for category, entries in data2.items():  # data는 위에서 말한 dict
-            print(entries)
+            #print(entries)
             for entry in entries:
-                print(entry)
+                #print(entry)
                 time_str, value = entry
                 # time_str은 '202505081400' 같은 문자열이라고 가정
                 time_obj = datetime.strptime(time_str, "%Y%m%d%H%M")
@@ -163,7 +164,7 @@ def background_updater():
             save_to_db(merged, organized)
         except Exception as e:
             print("데이터 갱신 실패:", e)
-        time.sleep(1800)  # 300초 = 5분마다 갱신
+            time.sleep(1800)  # 300초 = 5분마다 갱신
 
 @app.route("/")
 def load_latest_data_from_db():
