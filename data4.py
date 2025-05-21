@@ -2,7 +2,7 @@
 import requests  # requests 모듈 임포트
 
 # URL과 저장 경로 변수를 지정합니다.
-url = f'https://apihub.kma.go.kr/api/typ01/url/kma_sfcdd.php?&stn=131&disp=0&help=1&authKey=xxxxxxxxxxxxxxxxxxxx'
+url = f'https://apihub.kma.go.kr/api/typ01/url/kma_sfcdd.php?&stn=131&disp=0&help=1&authKey=lCL7eoqyTzGi-3qKst8xEQ'
 save_path = './OpenSourceBasicProj_Ass/teamproj/output_file4.txt'
 
 try:
@@ -14,13 +14,13 @@ except Exception as e1:
 
 def extract_lines_in_range(file_path, linenum):
     with open(file_path, 'r', encoding='utf-8') as f:
-        line = f.readlines()[linenum - 1]  # 리스트 슬라이싱으로 특정 범위 라인 x`읽기
+        line = f.readlines()[linenum-1]  # 리스트 슬라이싱으로 특정 범위 라인 x`읽기
         return line.strip()
 
 def finalarr(shared_list):
     try:
         data = extract_lines_in_range(save_path, 66)
-        finalData = {'maxtemp' : data[59:63], 'mintemp' : data[70:74]}
+        finalData = {'maxtemp' : data[59:63].strip(), 'mintemp' : data[70:74].strip()}
 
         shared_list.append(finalData)
     
