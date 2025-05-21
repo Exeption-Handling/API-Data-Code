@@ -3,7 +3,7 @@ import requests
 import json
 
 url = 'http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty'
-params ={'serviceKey' : 'xxxxxxxxxxxxxxxxxxxxxxxxxxx', 'returnType' : 'json', 'numOfRows' : '100', 'pageNo' : '1', 'sidoName' : '충북', 'ver' : '1.0' }
+params ={'serviceKey' : 'L8/lsHDixFmS2p34yAH8Q9glQii9ughw2dcw5Hu6SH4gO0rrtNOPEevNbd3nbvW8NzCbwuPPxBHUTqs7aFzLww==', 'returnType' : 'json', 'numOfRows' : '100', 'pageNo' : '1', 'sidoName' : '충북', 'ver' : '1.0' }
 
 save_path = './OpenSourceBasicProj_Ass/teamproj/output_file2.json'
 try:
